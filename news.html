@@ -1,36 +1,18 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <title>インターネット2014最終課題</title>
+    <meta charset="utf-8">
+    <!--<link rel="stylesheet" type="text/css" href="css/app.css">-->
+  </head>
+
+
 <header>ニュースチェッカー</header>
+<div id="content"></div>
+
 
 <!-- Google AJAX API ローダーのライブラリをインクルードする -->
 <script type="text/javascript" src="http://www.google.com/jsapi?key=xx"></script>
 
-<script type="text/javascript">
-
-  function onLoad()
-  {
-      var restriction = { topic:'h', ned:'jp' };
-
-      var newsSearch = new google.search.NewsSearch();
-      newsSearch.setSearchCompleteCallback( this, SearchComplete, [ newsSearch ] );
-      newsSearch.setRestriction( google.search.Search.RESTRICT_EXTENDED_ARGS, restriction );
-
-      newsSearch.execute( '' );
-  }
-
-  function SearchComplete( searcher )
-  {
-      if( searcher.results )
-      {
-          var content = document.getElementById( 'content' );
-          for( var i = 0; i < searcher.results.length; i++ )
-          {
-              content.appendChild( searcher.results[ i ].html );
-          }
-      }
-  }
-
-  google.load( 'search', '1' );
-  google.setOnLoadCallback( onLoad );
-
-</script>
-
+<script src="newssample.js"></script>
 <div id="content"></div>
