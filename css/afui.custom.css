@@ -35,6 +35,7 @@ body {
 
 #afui input,textarea { -webkit-user-select:text; -moz-user-select:-moz-text;-moz-user-select:text;} /* allow users to select text that appears in input fields */
 
+
 #afui img { border:none; } /* Remove default borders for images */
 
 
@@ -1056,7 +1057,7 @@ body {
 #afui input[type="tel"],
 #afui input[type="color"],
 #afui .input-group {  
-  width: 100%;
+  width: 80%;
   height: 40px;
   padding: 10px;
   margin-bottom: 10px;
