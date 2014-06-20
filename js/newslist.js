@@ -6,22 +6,53 @@ var stap = document.getElementById('stap');
  var word2 = document.getElementById('word'); //入力した検索語
  var word = word2.value;
  var writeresult = document.getElementById('write');
- google.load("search", "1");
+ var searchcontrol = document.getElementById('searchcontrol');
+ var stap2 = document.getElementById('stap22');
+ var searchcontrol2 = [];
+ 
+
+function onLoad()
+  {
+      var restriction = { topic:'h', ned:'jp' };
+
+      var newsSearch = new google.search.NewsSearch();
+      newsSearch.setSearchCompleteCallback( this, SearchComplete, [ newsSearch ] );
+      newsSearch.setRestriction( google.search.Search.RESTRICT_EXTENDED_ARGS, restriction );
+
+      newsSearch.execute( '' );
+  }
+
+  function SearchComplete( searcher )
+  {
+      if( searcher.results )
+      {
+          for( var i = 0; i < searcher.results.length; i++ )
+          {
+              searchcontrol2.appendChild( searcher.results[ i ].html );
+          }
+      }
+  }
+
+  google.load( 'search', '1' );
+  google.setOnLoadCallback( onLoad );
+
 
  function dooo(){
   //検索した時にすでにあるものだとその部分を表示できるようにしたい
-  if(word="stap" && word="STAP" ){
+  if(word=="stap" && word=="STAP" ){
   	//stapの内容を見せる
-  	alert("stap");
+  	searchcontrol.innerHTML = stap2;
   }
-  else if(word="ES細胞" && word="ES"){
-     alert("ES")
+  else if(word=="ES細胞" && word=="ES"){
+     searchcontrol.innerHTML = ES;
   }
   else{
-      // Call this function when the page has been loaded
-        var searchControl = new google.search.SearchControl(word);
-        searchControl.addSearcher(new google.search.WebSearch(word));
-        searchControl.addSearcher(new google.search.NewsSearch(word));
-        searchControl.draw(document.getElementById("searchcontrol"));
-  		}
+    //searchcontrol.innerHTML = "<h3>検索結果</h3><br><p>test</p>";
+    onLoad
+    console.log(searchcontrol2);
+    searchcontrol = searchcontrol2;
  }
+}
+
+
+ 

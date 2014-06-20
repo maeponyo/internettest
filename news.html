@@ -21,7 +21,8 @@
 
         <!--用語解説-->
         <div id="stap" data-title="STAP" class="panel">
-        <h3>STAP細胞</h3> 
+          <div id ="stap22">
+        <h3>STAP細胞</h3> </div>
         </div> 
 
         <div id="ES" data-title="ES" class="panel">
@@ -75,7 +76,7 @@
 
       <!-- フッタ -->
       <div id="navbar">
-        <input type="text" id="word"> </input>
+        <input type="text" id="word" placeholder="単語を入力してください"> </input>
         <a class="button" onclick="dooo()">検索</a>
       </div>
 
@@ -96,15 +97,14 @@
       </aside>
 
     </div>
-    <!-- Google AJAX API ローダーのライブラリをインクルードする -->
-    <script type="text/javascript" src="http://www.google.com/jsapi?key=xx"></script>
+
+    <script src="js/appframework.min.js"></script>    
+    <script src="js/appframework.ui.min.js"></script>    
+    <script src="js/af.plugins.min.js"></script> 
     <!--検索用API-->
     <script src="https://www.google.com/jsapi"
         type="text/javascript"></script>
-    <script src="js/appframework.min.js"></script>    
-    <script src="js/appframework.ui.min.js"></script>    
-    <script src="js/af.plugins.min.js"></script>
-    <script src="js/newssample.js"></script>
-    <script src="js/newslist.js"></script>    
+         <script src="js/newslist.js"></script>  
+         <script src="js/newssample.js"></script> 
   </body>
 </html>
