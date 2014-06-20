@@ -15,13 +15,9 @@
         <!-- ホーム画面 -->
         <div id="home" data-title="ホーム" class="panel">
           <h2>最新ニュース</h2>
+          <div id="content2"></div>
         </div>
-          <!-- Google AJAX API ローダーのライブラリをインクルードする -->
-<script type="text/javascript" src="http://www.google.com/jsapi?key=xx"></script>
-
-
-
-<div id="content2"></div>
+          
 
         <!--用語解説-->
         <div id="stap" data-title="STAP" class="panel">
@@ -57,6 +53,7 @@
         </div> 
 
         <div id="write" data-title="検索結果" class="panel">
+         <div id="searchcontrol"></div>
         </div> 
 
         <!-- 用語一覧 -->
@@ -70,6 +67,7 @@
             <li><a href="#DNA">DNA</a></li>
             <li><a href="#3D">3Dプリンタ</a></li>
             <li><a href="#IP">IPアドレス</a></li>
+            <li><a href="#write">検索結果</a></li>
           </div>
 
 
@@ -78,7 +76,7 @@
       <!-- フッタ -->
       <div id="navbar">
         <input type="text" id="word"> </input>
-        <a class="button" onclick="doo()">検索</a>
+        <a class="button" onclick="dooo()">検索</a>
       </div>
 
       <!-- サイドバー -->
@@ -93,10 +91,16 @@
           <li><a href="#cazino">カジノ</a></li>
           <li><a href="#3D">3Dプリンタ</a></li>
           <li><a href="#IP">IPアドレス</a></li>
+          <li><a href="#write">検索結果</a></li>
         </ul>
       </aside>
 
     </div>
+    <!-- Google AJAX API ローダーのライブラリをインクルードする -->
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=xx"></script>
+    <!--検索用API-->
+    <script src="https://www.google.com/jsapi"
+        type="text/javascript"></script>
     <script src="js/appframework.min.js"></script>    
     <script src="js/appframework.ui.min.js"></script>    
     <script src="js/af.plugins.min.js"></script>
