@@ -9,5 +9,13 @@ var stap = document.getElementById('stap');
 
  function doo(){
   //検索した時にすでにあるものだとその部分を表示できるようにしたい
-  if(word=)
+  if(word="stap" && word="STAP" ){
+  	//stapの内容を見せる
+  }
+  else if(word="ES細胞" && word="ES"){
+
+  }
+  else{
+  	
+  }
  }
