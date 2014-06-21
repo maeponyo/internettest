@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/afui.custom.css">
-    <link rel="stylesheet" type="text/css" href="css/icons.css">
   </head>
   <body> 
     <div id="afui" class="ios7">
       <div id="header">
         <a id="menubadge" onclick="af.ui.toggleRightSideMenu()" class="menuButton"></a>
-        <input type="text" id="word" placeholder="単語を入力してください"> </input>
-        <a class="button" onclick="dooo()">検索</a>
       </div>
       <div id="content">
         <!-- ホーム画面 -->
@@ -31,37 +28,42 @@
 
         <div id="ES" data-title="ES" class="panel">
         <h3>ES細胞</h3> 
+        <p>test es</p>
         </div> 
 
         <div id="iPS" data-title="ips" class="panel">
         <h3>iPS細胞</h3> 
+        <p>test ips</p>
         </div> 
 
         <div id="syuudann" data-title="集団的自衛権" class="panel">
-        <h3>集団的自衛権</h3> 
+        <h3>集団的自衛権</h3>
+        <p>test syudan</p> 
         </div> 
 
         <div id="cazino" data-title="カジノ" class="panel">
         <h3>カジノ</h3> 
+        <p>test cazino</p>
         </div> 
 
         <div id="DNA" data-title="DNA" class="panel">
         <h3>DNA</h3> 
+        <p>test dna</p>
         </div> 
 
         <div id="3D" data-title="3Dプリンタ" class="panel">
-        <h3>3Dプリンタ</h3> 
+        <h3>3Dプリンタ</h3>
+        <p>test 3d</p> 
         </div> 
 
         <div id="IP" data-title="IPアドレス" class="panel">
-        <h3>IPアドレス</h3> 
+        <h3>IPアドレス</h3>
+        <p>test ip</p> 
         </div> 
 
         <div id="write" data-title="検索結果" class="panel">
-          <h3>検索結果</H>
-         <div id="searchcontrol"></div>
-          <div id="content3"></div>
-          <div id="content4"></div>
+         <div id="searchcontrol">検索ボタンを押してください</div>
+          <div id="wordcontent"></div>
         </div> 
 
         <!-- 用語一覧 -->
@@ -83,8 +85,8 @@
 
       <!-- フッタ -->
       <div id="navbar">
-        <a href="#home" class="icon home">ホーム</a>
-        <a href="#wordlist" class="icon folder">用語一覧</a>
+        <input type="text" id="word" placeholder="単語を入力してください"> </input>
+        <a class="button" onclick="dooo()">検索</a>
       </div>
 
       <!-- サイドバー -->
@@ -112,7 +114,7 @@
     <script src="https://www.google.com/jsapi"
         type="text/javascript"></script>
          <script src="js/newslist.js"></script>  
-         <script src="js/newssample.js"></script> 
+         <!--<script src="js/newssample.js"></script> -->
          <script src="js/jquery.js"></script>
   </body>
 </html>
