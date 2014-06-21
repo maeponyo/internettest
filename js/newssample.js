@@ -1,7 +1,6 @@
-   var content = document.getElementById( 'content2' );
-   var worry = document.getElementById( 'content3' );
+  var content = document.getElementById( 'content2' );
 
-  function onLoad()
+  var onLoad = function()
   {
       var restriction = { topic:'h', ned:'jp' };
 
@@ -20,19 +19,9 @@
           for( var i = 0; i < searcher.results.length; i++ )
           {
               content.appendChild( searcher.results[ i ].html );
-              worry.appendChild( searcher.results[ i ].html );
           }
       }
   }
 
   google.load( 'search', '1' );
   google.setOnLoadCallback( onLoad );
-
-
-
-
-
-
-
-
- 

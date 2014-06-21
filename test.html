@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-  <head>
+ <!-- <head>
     <script src="https://www.google.com/jsapi"
         type="text/javascript"></script>
     <script type="text/javascript">
@@ -20,5 +20,40 @@
   <body>
     <div id="searchcontrol"></div>
   </body>
+-->
+
+
+  <!-- Google AJAX API ローダーのライブラリをインクルードする -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+
+  function OnLoad()
+  {
+      // 検索コントロールを作成する
+      var searchControl = new google.search.SearchControl();
+
+      // 検索コントロールにWeb検索のサーチャーを追加する
+      searchControl.addSearcher( new google.search.WebSearch() );
+
+      // 検索コントロールを描画する
+      searchControl.draw( document.getElementById( 'content' ) );
+
+      // 検索を実行する
+      searchControl.execute( keyword );
+  }
+
+
+  // Search APIをロードする
+  google.load( 'search', '1' );
+
+  // ドキュメントがロードされた後に呼び出されるハンドラ関数を登録する
+  google.setOnLoadCallback( OnLoad );
+
+</script>
+
+<div id="content">Loading...</div>
 
 </html>
+
+

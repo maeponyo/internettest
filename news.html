@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/afui.custom.css">
+    <link rel="stylesheet" type="text/css" href="css/icons.css">
   </head>
   <body> 
     <div id="afui" class="ios7">
       <div id="header">
         <a id="menubadge" onclick="af.ui.toggleRightSideMenu()" class="menuButton"></a>
+        <input type="text" id="word" placeholder="単語を入力してください"> </input>
+        <a class="button" onclick="dooo()">検索</a>
       </div>
       <div id="content">
         <!-- ホーム画面 -->
@@ -58,6 +61,7 @@
           <h3>検索結果</H>
          <div id="searchcontrol"></div>
           <div id="content3"></div>
+          <div id="content4"></div>
         </div> 
 
         <!-- 用語一覧 -->
@@ -79,8 +83,8 @@
 
       <!-- フッタ -->
       <div id="navbar">
-        <input type="text" id="word" placeholder="単語を入力してください"> </input>
-        <a class="button" onclick="dooo()">検索</a>
+        <a href="#home" class="icon home">ホーム</a>
+        <a href="#wordlist" class="icon folder">用語一覧</a>
       </div>
 
       <!-- サイドバー -->
