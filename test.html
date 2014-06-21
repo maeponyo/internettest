@@ -1,59 +1,80 @@
 <!doctype html>
 <html>
- <!-- <head>
-    <script src="https://www.google.com/jsapi"
-        type="text/javascript"></script>
-    <script type="text/javascript">
-      google.load("search", "1");
-
-      // Call this function when the page has been loaded
-      function initialize() {
-        var searchControl = new google.search.SearchControl();
-        searchControl.addSearcher(new google.search.WebSearch());
-        searchControl.addSearcher(new google.search.NewsSearch());
-        searchControl.draw(document.getElementById("searchcontrol"));
-      }
-      google.setOnLoadCallback(initialize);
-    </script>
-
-  </head>
-  <body>
-    <div id="searchcontrol"></div>
-  </body>
--->
-
-
-  <!-- Google AJAX API ローダーのライブラリをインクルードする -->
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<head>
+<meta charset="UTF-8">
+<title></title>
+ 
+<script src="js/jquery.js"></script>
 
 <script type="text/javascript">
-
-  function OnLoad()
-  {
-      // 検索コントロールを作成する
-      var searchControl = new google.search.SearchControl();
-
-      // 検索コントロールにWeb検索のサーチャーを追加する
-      searchControl.addSearcher( new google.search.WebSearch() );
-
-      // 検索コントロールを描画する
-      searchControl.draw( document.getElementById( 'content' ) );
-
-      // 検索を実行する
-      searchControl.execute( keyword );
-  }
-
-
-  // Search APIをロードする
-  google.load( 'search', '1' );
-
-  // ドキュメントがロードされた後に呼び出されるハンドラ関数を登録する
-  google.setOnLoadCallback( OnLoad );
-
+$(function(){
+   // #で始まるアンカーをクリックした場合に処理
+   $('a[href^=#]').click(function() {
+      // スクロールの速度
+      var speed = 400; // ミリ秒
+      // アンカーの値取得
+      var href= $(this).attr("href");
+      // 移動先を取得
+      var target = $(href == "#" || href == "" ? 'html' : href);
+      // 移動先を数値で取得
+      var position = target.offset().top;
+      // スムーススクロール
+      $('body,html').animate({scrollTop:position}, speed, 'swing');
+      return false;
+   });
+});
 </script>
-
-<div id="content">Loading...</div>
-
+ 
+<style>
+div{width:auto; height:500px;}
+a.button{font-size:12px;}
+</style>
+ 
+</head>
+ 
+<body>
+ 
+<h3><a href="http://kyasper.com/?p=1219">元のページに戻る</a></h3>
+ 
+<h2 id="index">目次</h2>
+<ul>
+  <li><a href="#1">section1</a></li>
+  <li><a href="#2">section2</a></li>
+  <li><a href="#3">section3</a></li>
+  <li><a href="#4">section4</a></li>
+  <li><a href="#5">section5</a></li>
+  <li><a href="#6">section6</a></li>
+</ul>
+ 
+<div id="1">
+  <h2>section1</h2>
+  <a class="button" href="#index">▲ 目次にもどる</a>
+</div>
+ 
+<div id="2">
+  <h2>section2</h2>
+  <a class="button" href="#index">▲ 目次にもどる</a>
+</div>
+ 
+<div id="3">
+  <h2>section3</h2>
+  <a class="button" href="#index">▲ 目次にもどる</a>
+</div>
+ 
+<div id="4">
+  <h2>section4</h2>
+  <a class="button" href="#index">▲ 目次にもどる</a>
+</div>
+ 
+<div id="5">
+  <h2>section5</h2>
+  <a class="button" href="#index">▲ 目次にもどる</a>
+</div>
+ 
+<div id="6">
+  <h2>section6</h2>
+  <a class="button" href="#index">▲ 目次にもどる</a>
+</div>
+ 
+</body>
 </html>
-
-

@@ -62,6 +62,9 @@
 
       // 検索を実行する
       searchControl.execute( word );
+
+      $('html,body').animate({ scrollTop: writeresult }, 'fast');
+      return false;
 }}
 
  
