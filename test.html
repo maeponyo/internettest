@@ -1,80 +1,53 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title></title>
- 
-<script src="js/jquery.js"></script>
+  <head>
+    <title>ニュースチェッカーテスト</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/afui.custom.css">
+     <link rel="stylesheet" type="text/css" href="css/icons.css">
+  </head>
+  <body> 
+    <div id="afui" class="ios7">
+      <div id="header">
+        <a id="menubadge" onclick="af.ui.toggleRightSideMenu()" class="menuButton"></a>
+      </div>
+      <div id="content">
+        <!-- ホーム画面 -->
+        <div id="home" data-title="ホーム" class="panel">
+          <h2>最新ニュース</h2>
+          <div id="content2"></div>
+        </div>
 
-<script type="text/javascript">
-$(function(){
-   // #で始まるアンカーをクリックした場合に処理
-   $('a[href^=#]').click(function() {
-      // スクロールの速度
-      var speed = 400; // ミリ秒
-      // アンカーの値取得
-      var href= $(this).attr("href");
-      // 移動先を取得
-      var target = $(href == "#" || href == "" ? 'html' : href);
-      // 移動先を数値で取得
-      var position = target.offset().top;
-      // スムーススクロール
-      $('body,html').animate({scrollTop:position}, speed, 'swing');
-      return false;
-   });
-});
-</script>
- 
-<style>
-div{width:auto; height:500px;}
-a.button{font-size:12px;}
-</style>
- 
-</head>
- 
-<body>
- 
-<h3><a href="http://kyasper.com/?p=1219">元のページに戻る</a></h3>
- 
-<h2 id="index">目次</h2>
-<ul>
-  <li><a href="#1">section1</a></li>
-  <li><a href="#2">section2</a></li>
-  <li><a href="#3">section3</a></li>
-  <li><a href="#4">section4</a></li>
-  <li><a href="#5">section5</a></li>
-  <li><a href="#6">section6</a></li>
-</ul>
- 
-<div id="1">
-  <h2>section1</h2>
-  <a class="button" href="#index">▲ 目次にもどる</a>
-</div>
- 
-<div id="2">
-  <h2>section2</h2>
-  <a class="button" href="#index">▲ 目次にもどる</a>
-</div>
- 
-<div id="3">
-  <h2>section3</h2>
-  <a class="button" href="#index">▲ 目次にもどる</a>
-</div>
- 
-<div id="4">
-  <h2>section4</h2>
-  <a class="button" href="#index">▲ 目次にもどる</a>
-</div>
- 
-<div id="5">
-  <h2>section5</h2>
-  <a class="button" href="#index">▲ 目次にもどる</a>
-</div>
- 
-<div id="6">
-  <h2>section6</h2>
-  <a class="button" href="#index">▲ 目次にもどる</a>
-</div>
- 
-</body>
+
+        <div id="write" data-title="検索結果" class="panel">
+          <div id="wordcontent"></div>
+        </div> 
+      </div>
+
+      <!-- フッタ -->
+      <div id="navbar">
+        <input type="text" id="word" placeholder="単語を入力してください"> </input>
+        <a class="button" id="dooo" href="#write">検索</a>
+      </div>
+
+      <!-- サイドバー -->
+      <aside id="main-nav">
+        <ul class="list">
+          <li class="divider">ニュースチェッカー</li>
+          <li><a href="#home">ホーム</a></li>
+          <li><a href="#wordlist">用語一覧</a></li>
+          <li><a href="#write">検索結果</a></li>
+          <li class="divider">検索履歴</li>
+          <li　id="rireki"></li>
+        </ul>
+      </aside>
+
+    </div>
+
+    <script src="js/appframework.min.js"></script>    
+    <script src="js/appframework.ui.min.js"></script>    
+    <script src="js/af.plugins.min.js"></script> 
+    <script src="js/app.js"></script>  
+    <script src="js/localforage.min.js"></script>
 </html>

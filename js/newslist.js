@@ -14,6 +14,7 @@
   google.load( 'search', '1' );
 
  function dooo(){
+  console.log("hello");
   var word2 = document.getElementById('word'); //入力した検索語
   var word = word2.value;
   //wordに何も入力されていないとき
@@ -63,7 +64,7 @@
       // 検索を実行する
       searchControl.execute( word );
 
-      
+          
 }}
 
  
