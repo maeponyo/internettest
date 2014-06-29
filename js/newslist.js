@@ -63,8 +63,7 @@
 
       // 検索を実行する
       searchControl.execute( word );
-
-          
+    $(".gsc-resultsRoot").css("width","900px");    
 }}
 
  

@@ -13,6 +13,12 @@ var outputElements = {
 
 var rirekis = [];
 
+function rirekiDelete(){
+  if(rirekis.length > 5){
+      rirekis.shift();
+  }
+}
+
 function createRireki(word){
   return{
     word: word,
@@ -57,23 +63,7 @@ var displayRireki = function(rireki){
   outputElements.memoList.appendChild(createRirekiElement(rireki));
 };
 
-/*
- メモを追加する関数。メモ入力画面のコントローラ
- */
-var addRireki = function(){
-  var newRireki = createRireki(word.value);
-  rirekis.push(newRireki);
-  displayRireki(newRireki);
-  saveRirekiList();
-  
-  document.location = "#write";
-};
-
-var restoreRirekiList = function(list){
-  rirekis = list;
-  if(rirekis == null){
-    rirekis = [];
-  }
+var restoreRirekiList = function(){
   var i = 0;
   while(i < rirekis.length){
     displayRireki(rirekis[i]);
@@ -83,11 +73,30 @@ var restoreRirekiList = function(list){
 
 
 /*
+ メモを追加する関数。メモ入力画面のコントローラ
+ */
+var addRireki = function(){
+  $("#wordcontent").html("");
+  restoreRirekiList();
+  rirekiDelete();
+  var newRireki = createRireki(word.value);
+  rirekis.push(newRireki);
+  displayRireki(newRireki);
+  saveRirekiList();
+  console.log(rirekis);
+  
+  document.location = "#write";
+};
+
+
+
+
+/*
  アプリの初期化を行う関数
  */
 function inptApp(){
     dooo.addEventListener("click",addRireki);
-  localforage.getItem(MEMOLISTNAME, restoreRirekiList);
+  //localforage.getItem(MEMOLISTNAME, restoreRirekiList);
 }
 
 inptApp();
