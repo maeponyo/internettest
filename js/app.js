@@ -109,7 +109,7 @@ function createRirekiElement(memo){
     var li = document.createElement("li");
   li.appendChild(createRirekiWordElement(memo));
   li.appendChild(createRirekiTimestampElement(memo));
-  li.setAttribute("class.a","memo");
+  li.setAttribute("class","memo");
 
   //押したら検索画面へ移動
   li.addEventListener("click",function(){
