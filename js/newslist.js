@@ -10,23 +10,15 @@
  var wordcontent = document.getElementById("wordcontent");
  var word;
  
+ 
   // Search APIをロードする
   google.load( 'search', '1' );
 
- function dooo(){
-  console.log("hello");
-  var word2 = document.getElementById('word'); //入力した検索語
-  var word = word2.value;
-  //wordに何も入力されていないとき
-  if(word.length == 0){
-    $("#searchcontrol").html("<p>検索したい単語を入力してから検索ボタンを押してください</p>");
-    $("#wordcontent").html("<p></p>");
-  }
-  else{
-  //検索した時にすでにあるものだとその部分を表示する
+  function doooSerch(word){
+      //検索した時にすでにあるものだとその部分を表示する
   if(word == "stap" || word == "STAP" ){
-  	//stapの内容を見せる
-  	 $("#searchcontrol").html(stap);
+    //stapの内容を見せる
+     $("#searchcontrol").html(stap);
   }
   else if(word=="es" || word=="ES"){
       $("#searchcontrol").html(ES);
@@ -63,7 +55,20 @@
 
       // 検索を実行する
       searchControl.execute( word );
-    $(".gsc-resultsRoot").css("width","900px");    
+    $(".gsc-resultsRoot").css("width","900px");
+  }
+
+ function dooo(){
+  console.log("hello");
+  var word2 = document.getElementById('word'); //入力した検索語
+  var word = word2.value;
+  //wordに何も入力されていないとき
+  if(word.length == 0){
+    $("#searchcontrol").html("<p>検索したい単語を入力してから検索ボタンを押してください</p>");
+    $("#wordcontent").html("<p></p>");
+  }
+  else{
+    doooSerch(word);  
 }}
 
  
