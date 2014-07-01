@@ -1,4 +1,5 @@
-var word = document.getElementById("word");//検索したい単語
+var word;//検索したい単語
+var word2;
 var MEMOLISTNAME = "memo-list"; // localforage で利用するキー
 var timestamp = 0;
 var dooo = document.getElementById("dooo");
@@ -60,22 +61,27 @@ var outputElements = {
 var rirekis = [];
 
 function rirekiDelete(){
-  var i = 0;
-  while(i < rirekis.length){
-    if(word == rirekis[i]){
-        delete rirekis[i];
-    }
-    i = i + 1;
-  }
   if(rirekis.length > 4){
       rirekis.shift();
   }
 }
 
+function delete2Rireki(){
+  var n = 0;
+  if(rirekis.length > 0){
+  while(n < rirekis.length){
+    var rirekiAitem = rirekis[n];
+    var targetWord = rirekiAitem.word
+    if(word2 == targetWord){
+      rirekis.splice(n,1);
+    }
+    n = n + 1;
+  }}
+}
+
 function createRireki(word){
   return{
-    word: word,
-    timestamp: new Date()
+    word: word
   };
 }
 
@@ -86,15 +92,6 @@ var createRirekiWordElement = function(memo){
   return div;
 };
 
-/*
- メモオブジェクトの日付部分を HTML にする関数
- */
-var createRirekiTimestampElement = function(memo){
-  var div = document.createElement("div");
-  div.textContent = memo.timestamp;
-  div.setAttribute("class", "memo-timestamp");
-  return div;
-};
 
 function saveRirekiList(){
   localforage.setItem(MEMOLISTNAME, rirekis);
@@ -108,7 +105,6 @@ function reSerch(memo){
 function createRirekiElement(memo){
     var li = document.createElement("li");
   li.appendChild(createRirekiWordElement(memo));
-  li.appendChild(createRirekiTimestampElement(memo));
   li.setAttribute("class","memo");
 
   //押したら検索画面へ移動
@@ -133,21 +129,24 @@ var restoreRirekiList = function(){
   }
 };
 
-
 /*
  メモを追加する関数。メモ入力画面のコントローラ
  */
 var addRireki = function(){
-  $("#wordcontent").html("");
+word = document.getElementById("word");//検索したい単語
+word2 = word.value;
+  if(word2.length !== 0){
+    $("#wordcontent").html("");
+  delete2Rireki();
   rirekiDelete();
   restoreRirekiList();
   var newRireki = createRireki(word.value);
   rirekis.push(newRireki);
   displayRireki(newRireki);
   saveRirekiList();
-  console.log(rirekis[0]);
   
-  document.location = "#write";
+    document.location = "#write";
+  }
 };
 
 
