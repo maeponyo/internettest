@@ -8,28 +8,31 @@
  var ip = $("#IP").html();
  var writeresult = $('#write').html();
  var wordcontent = document.getElementById("wordcontent");
- var word;
- 
- 
+ var word;//検索単語
+ var word2;
+ var MEMOLISTNAME = "memo-list"; // localforage で利用するキー
+ var dooo = document.getElementById("dooo");
+
   // Search APIをロードする
   google.load( 'search', '1' );
 
   function doooSerch(word){
       //検索した時にすでにあるものだとその部分を表示する
-  if(word == "stap" || word == "STAP" ){
+  if(word == "stap" || word == "STAP" || word == "stap細胞" || 
+    word == "STAP細胞"){
     //stapの内容を見せる
      $("#searchcontrol").html(stap);
   }
-  else if(word=="es" || word=="ES"){
+  else if(word=="es" || word=="ES" || word=="es細胞" || word=="ES細胞"){
       $("#searchcontrol").html(ES);
   }
-  else if(word=="iPS" || word=="ips" || word=="iPS細胞"){
+  else if(word=="iPS" || word=="ips" || word=="iPS細胞"　|| word=="ips細胞"){
     $("#searchcontrol").html(iPS);
   }
-  else if(word=="集団的自衛権"){
+  else if(word=="集団的自衛権"　|| word=="集団自衛権"){
     $("#searchcontrol").html(syuudann);
   }
-  else if(word=="カジノ"){
+  else if(word=="カジノ"　|| word=="かじの"){
     $("#searchcontrol").html(cazino);
   }
   else if(word=="DNA" || word=="dna"){
@@ -58,16 +61,113 @@
     $(".gsc-resultsRoot").css("width","900px");
   }
 
- function dooo(){
-  var word2 = document.getElementById('word'); //入力した検索語
-  var word = word2.value;
+var outputElements = {　//履歴の出力先
+  memoList: document.querySelector("#wordcontent2")
+};
+
+var rirekis = [];
+
+function rirekiDelete(){
+  if(rirekis.length > 9){
+      rirekis.shift();
+  }
+}
+
+function delete2Rireki(){
+  var n = 0;
+  if(rirekis.length > 0){
+  while(n < rirekis.length){
+    var rirekiAitem = rirekis[n];
+    var targetWord = rirekiAitem.word
+    if(word2 == targetWord){
+      rirekis.splice(n,1);
+    }
+    n = n + 1;
+  }}
+}
+
+function createRireki(word){
+  return{
+    word: word
+  };
+}
+
+var createRirekiWordElement = function(memo){
+  var div = document.createElement("div");
+  div.textContent = memo.word;
+  div.setAttribute("class", "memo-word");
+  return div;
+};
+
+
+function saveRirekiList(){
+  localforage.setItem(MEMOLISTNAME, rirekis);
+}
+
+function reSerch(memo){
+  var word=memo.word;
+  doooSerch(word);
+}
+
+function createRirekiElement(memo){
+    var li = document.createElement("li");
+  li.appendChild(createRirekiWordElement(memo));
+  li.setAttribute("class","memo");
+
+  //押したら検索画面へ移動
+  li.addEventListener("click",function(){
+    reSerch(memo);
+  })
+  return li;
+}
+
+/*
+ メモオブジェクトを HTML として表示する関数
+ */
+var displayRireki = function(rireki){
+  outputElements.memoList.appendChild(createRirekiElement(rireki));
+};
+
+var restoreRirekiList = function(){
+  var i = 0;
+  while(i < rirekis.length){
+    displayRireki(rirekis[i]);
+    i = i + 1;
+  }
+};
+
+ function dooodo(){
+  word = document.getElementById('word'); //入力した検索語
+  word2 = word.value;
   //wordに何も入力されていないとき
   if(word.length == 0){
     $("#searchcontrol").html("<p>検索したい単語を入力してから検索ボタンを押してください</p>");
     $("#wordcontent").html("<p></p>");
   }
   else{
-    doooSerch(word);  
+    doooSerch(word2); 
+
+    $("#wordcontent2").html("");
+  delete2Rireki();
+  rirekiDelete();
+  restoreRirekiList();
+  var newRireki = createRireki(word2);
+  rirekis.push(newRireki);
+  displayRireki(newRireki);
+  saveRirekiList();
+  
+    document.location = "#write"; 
 }}
+
+
+/*
+ アプリの初期化を行う関数
+ */
+function inptApp(){
+    dooo.addEventListener("click",dooodo);
+  localforage.getItem(MEMOLISTNAME, restoreRirekiList);
+}
+
+inptApp();
 
  

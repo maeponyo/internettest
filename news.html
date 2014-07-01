@@ -81,13 +81,19 @@
             <li><a href="#write">検索結果</a></li>
           </div>
 
+        <!--　検索履歴　-->
+        <div id="RirekiWrite" data-title="検索履歴" class="panel">
+          <ul class="list">
+          <li><a id="wordcontent2" href="#write">履歴がありません</a></li>
+        </div>   
+
 
       </div>
 
       <!-- フッタ -->
       <div id="navbar">
         <input type="text" id="word" placeholder="単語を入力してください"> </input>
-        <a class="button" onclick="dooo()" href="#write">検索</a>
+        <a class="button" id="dooo" href="#write">検索</a>
       </div>
 
       <!-- サイドバー -->
@@ -97,6 +103,7 @@
           <li><a href="#home">ホーム</a></li>
           <li><a href="#wordlist">用語一覧</a></li>
           <li><a href="#write">検索結果</a></li>
+          <li><a href="#RirekiWrite">検索履歴</a></li>
           <li class="divider">注目用語</li>
           <li><a href="#stap">STAP</a></li>
           <li><a href="#syuudann">集団的自衛権</a></li>
@@ -108,6 +115,7 @@
 
     </div>
 
+     <script src="js/localforage.min.js"></script>
     <script src="js/appframework.min.js"></script>    
     <script src="js/appframework.ui.min.js"></script>    
     <script src="js/af.plugins.min.js"></script> 
