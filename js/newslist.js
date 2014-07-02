@@ -58,7 +58,8 @@
 
       // 検索を実行する
       searchControl.execute( word );
-    $(".gsc-resultsRoot").css("width","900px");
+    var Width = $("#content").width(); 
+    $(".gsc-resultsRoot").css("width",Width);
   }
 
 var outputElements = {　//履歴の出力先
@@ -140,7 +141,7 @@ var restoreRirekiList = function(){
   word = document.getElementById('word'); //入力した検索語
   word2 = word.value;
   //wordに何も入力されていないとき
-  if(word.length == 0){
+  if(word2.length == 0){
     $("#searchcontrol").html("<p>検索したい単語を入力してから検索ボタンを押してください</p>");
     $("#wordcontent").html("<p></p>");
   }
