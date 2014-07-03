@@ -102,7 +102,10 @@ var createRirekiWordElement = function(memo){
 
 
 function saveRirekiList(){
-  localforage.setItem(MEMOLISTNAME, rirekis);
+  console.log("saveRirekiList");
+  localforage.setItem(MEMOLISTNAME, rirekis, function(){
+    console.log("rereki is saved");
+  });
 }
 
 function reSerch(memo){
@@ -165,8 +168,13 @@ var restoreRirekiList = function(){
  アプリの初期化を行う関数
  */
 function inptApp(){
+    localforage.setDriver("localStorageWrapper");
     dooo.addEventListener("click",dooodo);
-  localforage.getItem(MEMOLISTNAME, restoreRirekiList);
+  localforage.getItem(MEMOLISTNAME, function(data){
+    console.log(data);
+    rirekis = data;
+    restoreRirekiList();
+  });
 }
 
 inptApp();
