@@ -7,6 +7,16 @@
  var D3 = $("#3D").html();
  var ip = $("#IP").html();
  var writeresult = $('#write').html();
+ var nonomura = $("#nonomura").html();
+ var vaio = $("#vaio").html();
+ var bannou = $("#bannou").html();
+ var myman = $("#myman").html();
+ var WorldCup = $("#WorldCup").html();
+ var Moscow = $("#Moscow").html();
+ var reina = $("#reina").html();
+ var SFC = $("#SFC").html();
+ var SuperFC = $("#SuperFC").html();
+ var CDC = $("#CDC").html();
  var wordcontent = document.getElementById("wordcontent");
  var word;//検索単語
  var word2;
@@ -43,6 +53,36 @@
   }
   else if(word=="ipアドレス" || word == "IPアドレス"){
     $("#searchcontrol").html(ip);
+  }
+  else if(word=="野々村竜太郎" || word == "兵庫議員"){
+    $("#searchcontrol").html(nonomura);
+  }
+  else if(word=="vaio" || word == "VAIO" || word=="バイオ"){
+    $("#searchcontrol").html(vaio);
+  }
+  else if(word=="万能細胞"){
+    $("#searchcontrol").html(bannou);
+  }
+  else if(word=="私の男"){
+    $("#searchcontrol").html(myman);
+  }
+  else if(word=="ワールドカップ"){
+    $("#searchcontrol").html(WorldCup);
+  }
+  else if(word=="モスクワ国際映画祭" || word == "モスクワ映画祭"){
+    $("#searchcontrol").html(Moscow);
+  }
+  else if(word=="トリンドル"　||word == "トリンドル玲奈"){
+    $("#searchcontrol").html(reina);
+  }
+  else if(word=="SFC"　|| word == "湘南藤沢キャンパス"){
+    $("#searchcontrol").html(SFC);
+  }
+  else if(word=="スーパーファミコン" || word =="sfc" ){
+    $("#searchcontrol").html(SuperFC);
+  }
+  else if(word=="CDC" || word == "cdc"){
+    $("#searchcontrol").html(CDC);
   }
   else{
     $("#searchcontrol").html("<h3>" +word + "</h3>");
