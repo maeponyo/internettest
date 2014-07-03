@@ -134,6 +134,9 @@ var displayRireki = function(rireki){
 
 var restoreRirekiList = function(){
   var i = 0;
+  if(rirekis.length >0 ){
+    $("#wordcontent2").html("");
+  }
   while(i < rirekis.length){
     displayRireki(rirekis[i]);
     i = i + 1;
@@ -150,7 +153,6 @@ var restoreRirekiList = function(){
   }
   else{
     doooSerch(word2); 
-
     $("#wordcontent2").html("");
   delete2Rireki();
   rirekiDelete();
