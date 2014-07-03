@@ -142,9 +142,7 @@ var createRirekiWordElement = function(memo){
 
 
 function saveRirekiList(){
-  console.log("saveRirekiList");
   localforage.setItem(MEMOLISTNAME, rirekis, function(){
-    console.log("rereki is saved");
   });
 }
 
