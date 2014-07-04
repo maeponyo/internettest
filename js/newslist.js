@@ -20,7 +20,7 @@
  var wordcontent = document.getElementById("wordcontent");
  var word;//検索単語
  var word2;
- var MEMOLISTNAME = "memo-list"; // localforage で利用するキー
+ var MEMOLISTNAME = "rireki-list"; // localforage で利用するキー
  var dooo = document.getElementById("dooo");
 
   // Search APIをロードする
@@ -190,7 +190,8 @@ var restoreRirekiList = function(){
     $("#wordcontent").html("<p></p>");
   }
   else{
-    doooSerch(word2); 
+     doooSerch(word2); 
+
     $("#wordcontent2").html("");
   delete2Rireki();
   rirekiDelete();
@@ -200,7 +201,7 @@ var restoreRirekiList = function(){
   displayRireki(newRireki);
   saveRirekiList();
   
-    document.location = "#write"; 
+    document.location = "#write";
 }}
 
 
@@ -212,11 +213,21 @@ function inptApp(){
     dooo.addEventListener("click",dooodo);
   localforage.getItem(MEMOLISTNAME, function(data){
     console.log(data);
-    rirekis = data;
+    if(data.length>0){
+      rirekis = data;
+    }
     restoreRirekiList();
   });
 }
 
 inptApp();
 
+function RiekisClear(){
+  localforage.removeItem(MEMOLISTNAME,function(data) {
+    // Run this code once the key has been removed.
+    console.log(data);
+    rirekis = [];
+    $("#wordcontent2").html("履歴を消去しました");
+});
+}
  
