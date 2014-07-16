@@ -225,7 +225,6 @@ inptApp();
 function RiekisClear(){
   localforage.removeItem(MEMOLISTNAME,function(data) {
     // Run this code once the key has been removed.
-    console.log(data);
     rirekis = [];
     $("#wordcontent2").html("履歴を消去しました");
 });
